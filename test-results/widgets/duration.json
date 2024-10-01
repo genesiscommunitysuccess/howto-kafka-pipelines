@@ -1,0 +1,1 @@
+[{"uid":"9266b7014146798a","name":"test when record sent to EVENT_PRICE_PUBLISH, kafka picks this up and inserts into db()","time":{"start":1747986186395,"stop":1747986220688,"duration":34293},"status":"passed","severity":"normal"}]
