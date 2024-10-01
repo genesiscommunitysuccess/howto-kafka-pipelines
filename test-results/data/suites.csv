@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","33396","test when record sent to EVENT_PRICE_PUBLISH, kafka picks this up and inserts into db()","","Tue Jan 07 03:36:16 UTC 2025","passed","Tue Jan 07 03:36:49 UTC 2025","","global.genesis.KafkaPipelinesTest","global.genesis.KafkaPipelinesTest","test when record sent to EVENT_PRICE_PUBLISH, kafka picks this up and inserts into db"
