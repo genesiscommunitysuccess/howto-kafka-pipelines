@@ -1,0 +1,13 @@
+<!--
+    Services defined here will define ports and hosts of processes required by the application.
+
+  * Full documentation on service definitions may be found here >> https://docs.genesis.global/docs/develop/server-capabilities/runtime-configuration/service-definition/
+
+-->
+
+<configuration>
+<!-- add your service definitions here as per kafka-pipelines.processes.xml -->
+  <service host="localhost" name="KAFKA_PIPELINES_MANAGER" port="9700"/>
+  <service host="localhost" name="KAFKA_EVENT_HANDLER" port="9701"/>
+  <service host="localhost" name="KAFKA_PIPELINES_DATA_PIPELINES" port="9702"/>
+</configuration>
