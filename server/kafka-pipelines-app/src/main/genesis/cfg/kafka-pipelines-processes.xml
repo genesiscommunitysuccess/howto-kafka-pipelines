@@ -1,0 +1,59 @@
+<!--
+    Processes defined here will run the application.
+
+  * Full documentation on process definitions may be found here >> https://docs.genesis.global/docs/develop/server-capabilities/runtime-configuration/processes/
+
+-->
+
+<processes>
+<!-- this process will be used to access any data to be displayed on the GUI -->
+  <process name="KAFKA_PIPELINES_MANAGER">
+    <groupId>KAFKA_PIPELINES</groupId>
+    <start>true</start>
+    <options>-Xmx512m -DRedirectStreamsToLog=true</options>
+    <!-- you need to add "genesis-pal-requestserver" to your module tag as shown below-->
+    <module>genesis-pal-requestserver</module>
+    <!-- you need to add "global.genesis.requestreply.pal" to your package tag as shown below-->
+    <package>global.genesis.requestreply.pal</package>
+    <!-- you need to add the name of your request reply script, "kafka-pipelines-reqrep.kts", to your script tag as shown below-->
+    <script>kafka-pipelines-reqrep.kts</script>
+    <description>Management of request server process</description>
+    <classpath>kafka-pipelines-app*</classpath>
+    <language>pal</language>
+  </process>
+<!-- this process will be used to trigger any events as well as host data pipelines that are triggered by events -->
+  <process name="KAFKA_EVENT_HANDLER">
+    <groupId>KAFKA_PIPELINES</groupId>
+    <start>true</start>
+    <options>-Xmx512m -DRedirectStreamsToLog=true</options>
+    <!-- you need to add "genesis-pal-eventhandler" and "genesis-pal-datapipeline" to your module tag as shown below-->
+    <module>genesis-pal-eventhandler,genesis-pal-datapipeline</module>
+    <!-- you need to add "global.genesis.eventhandler.pal" and "global.genesis.pipeline" and "global.genesis.kafka" to your package tag as shown below
+         note: "global.genesis.kafka" is only required as this is the package where we have created our custom serialiser/deserialisers
+         if you're creating your own, replace this package with wherever you have created them -->
+    <package>global.genesis.eventhandler.pal,global.genesis.pipeline,global.genesis.kafka</package>
+    <!-- you need to add the name of both your eventhandler and pipelines scripts, "kafka-pipelines-eventhandler.kts" and "kafka-pipelines-event-data-pipelines.kts", to your script tag as shown below-->
+    <script>kafka-pipelines-eventhandler.kts,kafka-pipelines-event-data-pipelines.kts</script>
+    <description>Management of events including event driven data pipelines</description>
+    <classpath>kafka-pipelines-app*</classpath>
+    <language>pal</language>
+  </process>
+<!-- this process will be used to manage all other data pipelines (i.e. excluding those linked to events as they are in the KAFKA_EVENT_HANDLER) -->
+  <process name="KAFKA_PIPELINES_DATA_PIPELINES">
+    <groupId>KAFKA_PIPELINES</groupId>
+    <start>true</start>
+    <options>-Xmx512m -DRedirectStreamsToLog=true</options>
+    <!-- you need to add "genesis-pal-datapipeline" to your module tag as shown below-->
+    <module>genesis-pal-datapipeline</module>
+    <!-- you need to add "global.genesis.pipeline" and "global.genesis.kafka" to your package tag as shown below
+         note: "global.genesis.kafka" is only required as this is the package where we have created our custom serialiser/deserialisers
+         if you're creating your own, replace this package with wherever you have created them -->
+    <package>global.genesis.pipeline,global.genesis.kafka</package>
+    <!-- you need to add the name of your pipelines script, in this case "kafka-pipelines-data-pipelines.kts", to your script tag as shown below-->
+    <script>kafka-pipelines-data-pipelines.kts</script>
+    <description>Management of data pipelines</description>
+    <classpath>kafka-pipelines-app*</classpath>
+    <language>pal</language>
+  </process>
+
+</processes>

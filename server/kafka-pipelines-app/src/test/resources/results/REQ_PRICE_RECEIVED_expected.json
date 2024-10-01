@@ -1,0 +1,43 @@
+{
+  "MESSAGE_TYPE": "REP_PRICE_RECEIVED",
+  "SOURCE_REF": "1",
+  "PARAMETRIC_TYPE": "global.genesis.gen.dao.PriceReceived",
+  "REPLY": [
+    {
+      "ISIN": "isin2",
+      "BOND_PRICE": 2,
+      "RECORD_ID": 7231959891907182733,
+      "TIMESTAMP": 7231959891907182733
+    },
+    {
+      "ISIN": "isin3",
+      "BOND_PRICE": 3,
+      "RECORD_ID": 7231988662483814412,
+      "TIMESTAMP": 7231988662483814412
+    },
+    {
+      "ISIN": "isin4",
+      "BOND_PRICE": 4,
+      "RECORD_ID": 7231989001362606357,
+      "TIMESTAMP": 7231989001362606357
+    },
+    {
+      "ISIN": "isin5",
+      "BOND_PRICE": 5,
+      "RECORD_ID": 7231991604372832513,
+      "TIMESTAMP": 7231991604372832513
+    },
+    {
+      "ISIN": "isin6",
+      "BOND_PRICE": 6,
+      "RECORD_ID": 7232019484242871463,
+      "TIMESTAMP": 7232019484242871463
+    },
+    {
+      "ISIN": "isin7",
+      "BOND_PRICE": 7,
+      "RECORD_ID": 7232019963794425385,
+      "TIMESTAMP": 7232019963794425385
+    }
+  ]
+}

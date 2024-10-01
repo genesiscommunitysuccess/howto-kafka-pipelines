@@ -1,0 +1,33 @@
+# Below is a simple configuration example in order to run an instance of kafka.
+# You can use tools like rancher/docker to manage your containers, this needs to be running in the background.
+# In order to start up your kafka service you need to run the following command in the directory where this docker-compose.yml exists:
+# docker-compose up -d
+# This will start up the containers and run them in the background, you can confirm these are running by using the following command:
+# docker ps
+# This should show you the containers you have running at the moment which should include your kafka and zookeeper services.
+
+services:
+  how_to-deploy-zookeeper:
+    image: confluentinc/cp-zookeeper:7.7.4
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+    networks:
+      - qs_network
+  how_to-deploy-kafka:
+    depends_on:
+      - how_to-deploy-zookeeper
+    image: confluentinc/cp-kafka:7.7.4
+    environment:
+      # ensure that the security config and bootstrap servers you set up in the system definitions match the listeners below i.e. securityConfig=PLAINTEXT and bootstrapServers=localhost:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - KAFKA_ZOOKEEPER_CONNECT=how_to-deploy-zookeeper:2181
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+      # you can specify the topic you want to create here with a comma separated string in the format of TOPIC_NAME:PARTITION_COUNT:REPLICATION_FACTOR as shown below
+      # this topic name will be used in your pipeline script when configuring the kafka source
+      - KAFKA_CREATE_TOPICS=price-topic:1:1
+    ports:
+      - 9092:9092
+    networks:
+      - qs_network
+networks:
+  qs_network: {}

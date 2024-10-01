@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "version": "1.105.0",
+    "generated": "Wed, 14 Aug 2024 13:20:25 GMT"
+  },
+  "data": {
+    "projectName": "kafka-pipelines",
+    "description": "",
+    "components": [
+      "GenesisServerCore",
+      "User Authorization"
+    ],
+    "fields": [],
+    "tables": [],
+    "consolidators": [],
+    "ui": {
+      "config": null,
+      "routes": [
+        {
+          "id": "04f9565e-dfeb-4bc4-948e-cfa3c809738c",
+          "name": "HOME",
+          "layoutType": null,
+          "permissions": null,
+          "tiles": []
+        }
+      ],
+      "framework": "web components"
+    },
+    "views": [],
+    "PBCs": [],
+    "csv": [
+      {
+        "name": "RIGHT",
+        "fields": [
+          "CODE",
+          "DESCRIPTION"
+        ],
+        "data": []
+      },
+      {
+        "name": "PROFILE",
+        "fields": [
+          "NAME",
+          "DESCRIPTION",
+          "STATUS"
+        ],
+        "data": []
+      },
+      {
+        "name": "PROFILE_RIGHT",
+        "fields": [
+          "PROFILE_NAME",
+          "RIGHT_CODE"
+        ],
+        "data": []
+      }
+    ],
+    "serverConfig": null,
+    "deliveryConfig": {
+      "method": "download",
+      "fileSuffix": "2024-08-14_142024"
+    },
+    "telemetry": {
+      "deviceId": "45cd80f9-c042-4958-81e3-c817d3f0e549",
+      "sessionId": "35cf453c-04f8-4f46-9120-a706a86d739c"
+    }
+  }
+}
